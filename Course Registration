@@ -1,0 +1,61 @@
+
+# Adriana Lizmory Cuellar (Liz Cuellar)
+
+# This code allows students to select one or more of the offered courses for which they wish to register.
+
+print("Welcome to the student registration program")
+print("Please enter the information requested below")
+
+name = input("\nfirst name: ") #data variable
+lastName = input("last name: ") #data variable
+studentNumber= int(input("student number: ")) #data variable
+
+#the dictionary that stores the student's data is created, making use of the data variables
+student = {
+    "first Name": name,
+    "last Name": lastName,
+    "number": studentNumber
+    }
+
+#a dictionary is created to store the codes as keys and the course names as values
+courses ={
+    "c1": "Maths",
+    "c2": "Philosophy",
+    "c3": "Chemistry",
+    "c4": "Physical"   
+    }
+
+
+print("\n\nDear student {}, you must to select the courses you want to register".format(student["first Name"]))
+print("The following are the available code-courses: ")
+
+
+#a for and the items method is used to iterate through the keys and values ​​in the courses dictionary
+for key, value in courses.items():
+    print(key, value)
+
+
+print("Please, select the code of the course(s) you want to register in the following format")
+print("for example: c1,c3, ...")
+entry = input()
+codeList = entry.split(",") #using the split method, the codes chosen by the student are stored in this list codeList
+
+print("\nYou have selected your course(s) succesfully...")
+
+print("Student resume: ") 
+
+#a for and the items method is used to iterate and print through the keys and values in the student dictionary
+for key, value in student.items():
+    print(key, value)
+    
+print("Selected course(s):")
+
+#codeList contains the chosen codes, 
+#so we iterate through it, using a while-loop starting from the zero position to the last position
+
+i = 0
+while i < len(codeList):
+code = codeList[i] #to simplify the code, we store the values of codeList in the code variable
+print("code: {0} course: {1}".format(code,courses.get(code))) #the format method is used to print the values of the codes and the associated values
+i+=1 #the variable i is incremented by one to continue iterating
+
